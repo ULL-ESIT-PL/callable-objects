@@ -42,4 +42,5 @@ redirecting those calls to an overridable method _call.
 ## References
 
 1. [Creating Callable Objects in JavaScript](https://medium.com/@adrien.za/creating-callable-objects-in-javascript-fbf88db9904c) by Adrien. 2019.
-2. [gist(https://gist.githubusercontent.com/arccoza/d6209b4c7317a22f0e929808640b40a5/raw/2e99d608329a75c17c38b6d4285492520c968a75/index.js)]
+2. [gist](https://gist.githubusercontent.com/arccoza/d6209b4c7317a22f0e929808640b40a5/raw/2e99d608329a75c17c38b6d4285492520c968a75/index.js)
+3. [repl.it](https://replit.com/@arccoza/Javascript-Callable-Object-using-bind#index.js)
