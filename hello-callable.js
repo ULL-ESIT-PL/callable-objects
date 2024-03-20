@@ -38,12 +38,38 @@ class ArrayFunction extends Callable {
 
 }
 
+class StringFunction extends Callable {
+    constructor(a) {
+      super()
+      this.string = a
+    }
+  
+    _call(arg) {
+      let result = this.string[arg];
+  
+      if (typeof result === 'function') {
+        return result.bind(this.string);
+      }
+      return result || null;
+    }
+  
+  }
 
-var af = new ArrayFunction(4,9,7)
+console.log("ArrayFunction Class")
+
+let af = new ArrayFunction(4,9,7)
 
 console.log(af(0));
 console.log(af("length"));
 console.log(af.array.concat(8))
+//
+console.log("StringFunction Class")
+
+let sf = new StringFunction("hello")
+
+console.log(sf(0));
+console.log(sf("length"));
+console.log(sf.string.concat(" world"))
 
 // Method and prop access is maintained.
 //console.log('Method and prop access is maintained:')
