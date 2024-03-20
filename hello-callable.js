@@ -1,63 +1,63 @@
 'use strict'
 
 class Callable extends Function {
-  constructor() {
-    // We create a new Function object using `super`, with a `this` reference
-    // to itself (the Function object) provided by binding it to `this`,
-    // then returning the bound Function object (which is a wrapper around the
-    // the original `this`/Function object). We then also have to store
-    // a reference to the bound Function object, as `_bound` on the unbound `this`,
-    // so the bound function has access to the new bound object.
-    // Pro: Works well, doesn't rely on deprecated features.
-    // Con: A little convoluted, and requires wrapping `this` in a bound object.
-    
-    super('...args', 'return this._bound._call(...args)')
-    // Or without the spread/rest operator:
-    // super('return this._bound._call.apply(this._bound, arguments)')
-    this._bound = this.bind(this)
+    constructor() {
+        // We create a new Function object using `super`, with a `this` reference
+        // to itself (the Function object) provided by binding it to `this`,
+        // then returning the bound Function object (which is a wrapper around the
+        // the original `this`/Function object). We then also have to store
+        // a reference to the bound Function object, as `_bound` on the unbound `this`,
+        // so the bound function has access to the new bound object.
+        // Pro: Works well, doesn't rely on deprecated features.
+        // Con: A little convoluted, and requires wrapping `this` in a bound object.
 
-    this._bound.person = 'Hank'
-    return this._bound
-  }
+        super('...args', 'return this._bound._call(...args)')
+        // Or without the spread/rest operator:
+        // super('return this._bound._call.apply(this._bound, arguments)')
+        this._bound = this.bind(this)
+
+        this._bound.person = 'Hank'
+        return this._bound
+    }
 }
 
 class ArrayFunction extends Callable {
-  constructor(...a) {
-    super()
-    this.array = a
-  }
-
-  _call(arg) {
-    let result = this.array[arg];
-
-    if (typeof result === 'function') {
-      return result.bind(this.array);
+    constructor(...a) {
+        super()
+        this.array = a
     }
-    return result || null;
-  }
+
+    _call(arg) {
+        let result = this.array[arg];
+
+        if (typeof result === 'function') {
+            return result.bind(this.array);
+        }
+        return result || null;
+    }
 
 }
 
 class StringFunction extends Callable {
     constructor(a) {
-      super()
-      this.string = a
+        super()
+        this.string = a
     }
-  
+
     _call(arg) {
-      let result = this.string[arg];
-  
-      if (typeof result === 'function') {
-        return result.bind(this.string);
-      }
-      return result || null;
+        let result = this.string[arg];
+
+        if (typeof result === 'function') {
+            return result.bind(this.string);
+        }
+        return result || null;
     }
-  
-  }
+
+}
 
 console.log("ArrayFunction Class")
 
-let af = new ArrayFunction(4,9,7)
+let af = new ArrayFunction(4, 9, 7)
 
 console.log(af(0));
 console.log(af("length"));
