@@ -30,7 +30,7 @@ class ArrayFunction extends Callable {
     _call(arg) {
         let result = this.array[arg];
 
-        if (typeof result === 'function') {
+        if (result.constructor.name === 'Function') {
             return result.bind(this.array);
         }
         return result || null;
@@ -47,7 +47,7 @@ class StringFunction extends Callable {
     _call(arg) {
         let result = this.string[arg];
 
-        if (typeof result === 'function') {
+        if (result.constructor.name === 'Function') {
             return result.bind(this.string);
         }
         return result || null;
