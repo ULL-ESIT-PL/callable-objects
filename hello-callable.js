@@ -16,7 +16,6 @@ class Callable extends Function {
         // super('return this._bound._call.apply(this._bound, arguments)')
         this._bound = this.bind(this)
 
-        this._bound.person = 'Hank'
         return this._bound
     }
 }
