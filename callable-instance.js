@@ -1,4 +1,4 @@
-
+// See package https://www.npmjs.com/package/callable-instance
 var CallableInstance = require("callable-instance");
  
 class ArrayFunction extends CallableInstance {

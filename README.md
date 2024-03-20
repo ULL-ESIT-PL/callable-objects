@@ -14,6 +14,7 @@ Callable Objects can also be thought of as **stateful functions**.
 Functions are inherently single instance, stateless procedures. 
 Callable Objects are instantiated, stateful procedures.
 
+See package [callable-object](https://www.npmjs.com/package/callable-object) for a simple implementation of a callable object in JavaScript. See also the example at [callable-instance.js](callable-instance.js).
 
 ## Goal
 
