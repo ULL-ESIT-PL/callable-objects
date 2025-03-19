@@ -1,0 +1,15 @@
+{
+  "name": "callable-objects",
+  "version": "1.0.0",
+  "description": "A callable object is a data structure that behaves as both an object and a function.",
+  "main": "hello-callable.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Casiano Rodriguez Leon <crguezl@ull.edu.es> (https://crguezl.github.io/)",
+  "license": "ISC",
+  "dependencies": {
+    "callable-instance": "^2.0.0"
+  }
+}
